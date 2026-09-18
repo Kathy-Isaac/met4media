@@ -55,19 +55,19 @@ standardize <- function(df) {
       }
     })
     analysis_result <- as.data.frame(analysis_result)
-    analysis_result <- analysis_result %>%
+    analysis_result <- analysis_result |>
       dplyr::rename(Name = Query,
-             Compound = Match) %>%
+             Compound = Match) |>
       dplyr::select(Name, Compound, HMDB, KEGG)
 
     # Isolate and clean up names that didn't match to a compound and resend request
     if (anyNA(analysis_result$Compound)) {
-      unmatched <- analysis_result %>%
-        dplyr::filter(is.na(Compound)) %>%
+      unmatched <- analysis_result |>
+        dplyr::filter(is.na(Compound)) |>
         dplyr::mutate(
           # Remove prefixes and suffixes that interfere with name matching
           Name.mod = gsub("^(DL-|DL |D-|D |L-|L )|[ .]?HCL$|[ .]?hydrochloride$|[ .]?dihydrochloride$|[ .]?phosphate$", "", Name, ignore.case = TRUE)
-        ) %>%
+        ) |>
         dplyr::select(Name, Name.mod)
 
       # Generate query list with modified names of unmatched compounds
@@ -101,17 +101,17 @@ standardize <- function(df) {
           }
         })
         analysis_result2 <- as.data.frame(analysis_result2)
-        analysis_result2 <- analysis_result2 %>%
+        analysis_result2 <- analysis_result2 |>
           dplyr::rename(Name.mod = Query,
-                 Compound = Match) %>%
+                 Compound = Match) |>
           dplyr::select(Name.mod, Compound, HMDB, KEGG)
 
         # Revert to original names in the second request
         analysis_result2 <- merge(unmatched, analysis_result2, by = "Name.mod")
-        analysis_result2 <- analysis_result2 %>%
+        analysis_result2 <- analysis_result2 |>
           dplyr::select(-Name.mod)
         # Remove unmatched compounds from first request
-        analysis_result <- analysis_result %>%
+        analysis_result <- analysis_result |>
           dplyr::filter(!is.na(Compound))
         # Combine the first and second responses
         analysis_result <- rbind(analysis_result, analysis_result2)

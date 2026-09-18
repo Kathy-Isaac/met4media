@@ -29,13 +29,13 @@ load_comparison <- function(df, medium, defined = TRUE) {
 
   # Filter to select media
   if (defined == TRUE) {
-    commercial_media <- commercial_media %>%
+    commercial_media <- commercial_media |>
       dplyr::filter(Group == "Defined")
   }
   if (missing(medium)) {
     commercial_media <- commercial_media
   } else if (all(medium %in% unique(commercial_media$Medium))) {
-    commercial_media <- commercial_media %>%
+    commercial_media <- commercial_media |>
       dplyr::filter(Medium %in% medium)
   } else {
     stop("Please select one or more valid media from the provided list: DMEM, aDMEM, DMEM.F12, aDMEM.F12, F12, F10, MEM, IMDM, RPMI, aRPMI, McCoy5A, NBM, StemPro, mTeSR, E6, E8, ECGM, EpiLife, N2B27, StemSpan, UC, PluriSTEM.")
@@ -59,9 +59,9 @@ load_comparison <- function(df, medium, defined = TRUE) {
 
     # Combine datasets
     cols <- intersect(colnames(df), colnames(commercial_media))
-    commercial_media <- commercial_media %>%
+    commercial_media <- commercial_media |>
       dplyr::select(all_of(cols))
-    df <- df %>%
+    df <- df |>
       dplyr::select(all_of(cols))
     df <- rbind(df, commercial_media)
   }

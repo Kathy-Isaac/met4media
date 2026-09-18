@@ -24,33 +24,37 @@ plot_barplot <- function(data, category, n = 15, x_var = "Compound", y_var = "Co
 ) {
 
 
-  d.plot <- data %>%
-    dplyr::filter(!is.na(Compound)) %>%
-    dplyr::filter(Concentration != "Present") %>% # Get rid of strings to convert concentration back to type numeric
-    dplyr::mutate(Concentration = as.numeric(Concentration)) %>%
-    dplyr::select(Compound, Category, Medium, Concentration) %>%
-    dplyr::distinct() %>%
-    dplyr::group_by(Compound, Category, Medium) %>%
-    dplyr::summarise(Concentration = sum(Concentration)) %>% # In case two different names match to the same compound
-    dplyr::ungroup() %>%
+  d.plot <- data |>
+    dplyr::filter(!is.na(Compound)) |>
+    dplyr::filter(Concentration != "Present") |> # Get rid of strings to convert concentration back to type numeric
+    dplyr::mutate(Concentration = as.numeric(Concentration)) |>
+    dplyr::select(Compound, Category, Medium, Concentration) |>
+    dplyr::distinct() |>
+    dplyr::group_by(Compound, Category, Medium) |>
+    dplyr::summarise(Concentration = sum(Concentration)) |> # In case two different names match to the same compound
+    dplyr::ungroup() |>
     dplyr::distinct()
 
   # Filter to selected categories if applicable
   if(missing(category)) {
     d.plot <- d.plot
   } else {
-    d.plot <- d.plot %>%
+    d.plot <- d.plot |>
       dplyr::filter(Category %in% category)
   }
 
   # Snip long metabolite names to n letters
-  d.plot <- d.plot %>%
+  d.plot <- d.plot |>
     dplyr::mutate(Compound = truncate_to_n_letters(Compound, n))
 
   # Generate plot
   p <- ggplot2::ggplot(d.plot) +
     ggplot2::geom_bar(
-      ggplot2::aes_string(x = x_var, y = y_var, fill = fill_var),
+      ggplot2::aes(
+        x = .data[[x_var]],
+        y = .data[[y_var]],
+        fill = .data[[fill_var]]
+      ),
       stat = "identity",
       position = "dodge") +
     ggplot2::scale_fill_brewer(fill_lab, palette = palette) +

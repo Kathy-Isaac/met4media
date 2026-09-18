@@ -28,8 +28,8 @@ categorize <- function(df) {
   # Name,	HMDB,	Class and	SubClass were obtained from https://www.hmdb.ca/downloads (All metabolites released on 2021-11-17)
   # Category was manually curated
   cols <- c(colnames(df), "Class",  "SubClass", "Category")
-  df <- merge(df, metabolite_categories, by = "HMDB", all.x = TRUE) %>%
-    dplyr::select(all_of(cols)) %>%
+  df <- merge(df, metabolite_categories, by = "HMDB", all.x = TRUE) |>
+    dplyr::select(all_of(cols)) |>
     dplyr::mutate(Category = ifelse(is.na(Category), "Other", Category))
   return(df)
 }

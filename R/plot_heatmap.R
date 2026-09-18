@@ -33,33 +33,33 @@ plot_heatmap <- function(data, category, n = 15, display_numbers = FALSE, cluste
   # Get names of all media to use later
   cols <- unique(data$Medium)
 
-  d.plot <- data %>%
-    dplyr::filter(!is.na(Compound)) %>%
-    dplyr::filter(Concentration != "Present") %>% # Get rid of strings to convert concentration back to type numeric
-    dplyr::mutate(Concentration = as.numeric(Concentration)) %>%
-    dplyr::filter(Concentration > 0) %>%
-    dplyr::select(Compound, Category, Medium, Concentration) %>%
-    dplyr::distinct() %>%
-    dplyr::group_by(Compound, Category, Medium) %>%
-    dplyr::summarise(Concentration = sum(Concentration)) %>% # In case two different names match to the same compound
-    dplyr::ungroup() %>%
+  d.plot <- data |>
+    dplyr::filter(!is.na(Compound)) |>
+    dplyr::filter(Concentration != "Present") |> # Get rid of strings to convert concentration back to type numeric
+    dplyr::mutate(Concentration = as.numeric(Concentration)) |>
+    dplyr::filter(Concentration > 0) |>
+    dplyr::select(Compound, Category, Medium, Concentration) |>
+    dplyr::distinct() |>
+    dplyr::group_by(Compound, Category, Medium) |>
+    dplyr::summarise(Concentration = sum(Concentration)) |> # In case two different names match to the same compound
+    dplyr::ungroup() |>
     tidyr::pivot_wider(
       names_from = Medium,
       values_from = Concentration,
       values_fill = 0
-    ) %>%
+    ) |>
     dplyr::arrange(Category)
 
   # Filter to selected categories if applicable
   if(missing(category)) {
     d.plot <- d.plot
   } else {
-    d.plot <- d.plot %>%
+    d.plot <- d.plot |>
       dplyr::filter(Category %in% category)
   }
 
   # Snip long metabolite names to n letters
-  d.plot <- d.plot %>%
+  d.plot <- d.plot |>
     dplyr::mutate(Compound = truncate_to_n_letters(Compound, n))
 
   # Format for heatmap
@@ -70,8 +70,8 @@ plot_heatmap <- function(data, category, n = 15, display_numbers = FALSE, cluste
   colnames(m.int) <- gsub("\\.", "-", colnames(m.int))
 
   # Annotation for heatmap
-  ann <- d.plot %>%
-    dplyr::select(Category) %>%
+  ann <- d.plot |>
+    dplyr::select(Category) |>
     as.data.frame()
   rownames(ann) <- rownames(m.int)
 
