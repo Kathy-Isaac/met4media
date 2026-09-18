@@ -142,9 +142,8 @@ MetaboAnalyst is an open-source platform for metabolomics data analysis. This pa
 
 Please cite MetaboAnalyst when using this resource:
 
-Pang, Z., Lu, Y., Zhou, G., Hui, F., Xu, L., Viau, C., Spigelman, A., MacDonald, P., Wishart, D., Li, S., and Xia, J. (2024) MetaboAnalyst 6.0: towards a unified platform for metabolomics data processing, analysis and interpretation Nucleic Acids Research (doi: 10.1093/nar/gkae253)
-
-Pang, Z., Xu, L., Viau, C., Lu, Y., Salavati, R., Basu, N., and Xia, J. (2024) MetaboAnalystR 4.0: a unified LC-MS workflow for global metabolomics Nature Communications (doi: 10.1038/s41467-024-48009-6)
+- Pang, Z., Lu, Y., Zhou, G., Hui, F., Xu, L., Viau, C., Spigelman, A., MacDonald, P., Wishart, D., Li, S., and Xia, J. (2024) MetaboAnalyst 6.0: towards a unified platform for metabolomics data processing, analysis and interpretation Nucleic Acids Research (doi: 10.1093/nar/gkae253)
+- Pang, Z., Xu, L., Viau, C., Lu, Y., Salavati, R., Basu, N., and Xia, J. (2024) MetaboAnalystR 4.0: a unified LC-MS workflow for global metabolomics Nature Communications (doi: 10.1038/s41467-024-48009-6)
 
 Please see the [MetaboAnalyst website](https://www.metaboanalyst.ca/MetaboAnalyst/home.xhtml) for current information regarding the software, API, and applicable terms of use.
 
@@ -156,14 +155,10 @@ HMDB is licensed under the Creative Commons Attribution-NonCommercial 4.0 Intern
 
 Please cite HMDB when using this resource:
 
-Wishart DS, Tzur D, Knox C, et al., HMDB: the Human Metabolome Database. Nucleic Acids Res. 2007 Jan;35(Database issue):D521-6. 17202168 
-
-Wishart DS, Knox C, Guo AC, et al., HMDB: a knowledgebase for the human metabolome. Nucleic Acids Res. 2009 37(Database issue):D603-610. 18953024 
-
-Wishart DS, Jewison T, Guo AC, Wilson M, Knox C, et al., HMDB 3.0 — The Human Metabolome Database in 2013. Nucleic Acids Res. 2013. Jan 1;41(D1):D801-7. 23161693
-
-Wishart DS, Feunang YD, Marcu A, Guo AC, Liang K, et al., HMDB 4.0 — The Human Metabolome Database for 2018. Nucleic Acids Res. 2018. Jan 4;46(D1):D608-17. 29140435 
-
-Wishart DS, Guo AC, Oler E, et al., HMDB 5.0: the Human Metabolome Database for 2022. Nucleic Acids Res. 2022. Jan 7;50(D1):D622–31. 34986597 
+- Wishart DS, Tzur D, Knox C, et al., HMDB: the Human Metabolome Database. Nucleic Acids Res. 2007 Jan;35(Database issue):D521-6. 17202168 
+- Wishart DS, Knox C, Guo AC, et al., HMDB: a knowledgebase for the human metabolome. Nucleic Acids Res. 2009 37(Database issue):D603-610. 18953024 
+- Wishart DS, Jewison T, Guo AC, Wilson M, Knox C, et al., HMDB 3.0 — The Human Metabolome Database in 2013. Nucleic Acids Res. 2013. Jan 1;41(D1):D801-7. 23161693
+- Wishart DS, Feunang YD, Marcu A, Guo AC, Liang K, et al., HMDB 4.0 — The Human Metabolome Database for 2018. Nucleic Acids Res. 2018. Jan 4;46(D1):D608-17. 29140435 
+- Wishart DS, Guo AC, Oler E, et al., HMDB 5.0: the Human Metabolome Database for 2022. Nucleic Acids Res. 2022. Jan 7;50(D1):D622–31. 34986597 
 
 Please see the [HMDB website](https://hmdb.ca/) and its licensing information for the current terms.
