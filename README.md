@@ -113,6 +113,8 @@ The 'plot_barplot' function generates a barplot using the ggplot2 package. At mi
 commercial <- load_comparison(medium = c("aDMEM", "DMEM", "F12", "RPMI", "MEM"))
 plot_barplot(commercial, category = "Amino Acids")
 ```
+![met4media workflow](images/example_barplot.png)
+**Figure 1. Example bar plot.**
 
 ## Heatmap
 The 'plot_heatmap' function generates a heatmap using the pheatmap package. At minimum, it takes as input a dataframe containing metabolomics/composition data of different cell culture media. The 'category' argument allows for filtering to specific categories such as amino acids. Other arguments alter the visual appearance of the plot. 
@@ -122,3 +124,5 @@ The 'plot_heatmap' function generates a heatmap using the pheatmap package. At m
 commercial <- load_comparison(medium = c("aDMEM", "DMEM", "F12", "RPMI", "MEM"))
 plot_heatmap(commercial)
 ```
+![met4media workflow](images/example_heatmap.png)
+**Figure 1. Example heatmap.**
