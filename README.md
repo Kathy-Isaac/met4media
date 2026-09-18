@@ -114,6 +114,7 @@ commercial <- load_comparison(medium = c("aDMEM", "DMEM", "F12", "RPMI", "MEM"))
 plot_barplot(commercial, category = "Amino Acids")
 ```
 ![met4media workflow](images/example_barplot.png)
+
 **Figure 1. Example bar plot.**
 
 ## Heatmap
@@ -125,4 +126,5 @@ commercial <- load_comparison(medium = c("aDMEM", "DMEM", "F12", "RPMI", "MEM"))
 plot_heatmap(commercial)
 ```
 ![met4media workflow](images/example_heatmap.png)
+
 **Figure 1. Example heatmap.**
