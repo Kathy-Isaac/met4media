@@ -34,7 +34,7 @@ standardize <- function(df) {
   # Check if the request is successful
   if (httr::status_code(response) == 200) {
     # Parse the JSON content
-    analysis_result <- rjson::fromJSON(content(response, "text", encoding = "UTF-8"), simplify = TRUE)
+    analysis_result <- rjson::fromJSON(httr::content(response, "text", encoding = "UTF-8"), simplify = TRUE)
     # Clean up the response: un-nest nested lists; convert to proper NA characters
     analysis_result <- lapply(analysis_result, function(x) {
       if (is.list(x)) {
@@ -56,7 +56,7 @@ standardize <- function(df) {
     })
     analysis_result <- as.data.frame(analysis_result)
     analysis_result <- analysis_result %>%
-      rename(Name = Query,
+      dplyr::rename(Name = Query,
              Compound = Match) %>%
       dplyr::select(Name, Compound, HMDB, KEGG)
 
@@ -102,7 +102,7 @@ standardize <- function(df) {
         })
         analysis_result2 <- as.data.frame(analysis_result2)
         analysis_result2 <- analysis_result2 %>%
-          rename(Name.mod = Query,
+          dplyr::rename(Name.mod = Query,
                  Compound = Match) %>%
           dplyr::select(Name.mod, Compound, HMDB, KEGG)
 
