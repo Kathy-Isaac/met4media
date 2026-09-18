@@ -67,6 +67,7 @@ example <-  data.frame(
 df <- standardize(example)
 df <- categorize(df)
 ```
+
 **Table 2. Example output from categorize function.**
 
 | Name | Concentration | Compound | KEGG | HMDB | Class | SubClass | Category |
@@ -101,6 +102,23 @@ df <- load_commercial(df = df,  medium = c("aDMEM", "DMEM", "F12"))
 
 # Visualization
 
+Multiple different media can be compared visually using the two functions described below.
+
 ## Bar Plot
 
+The 'plot_barplot' function generates a barplot using the ggplot2 package. At minimum, it takes as input a dataframe containing metabolomics/composition data of different cell culture media. The default settings plot 'Compound' on the X-axis, 'Concentration' on the Y-axis and 'Medium' as the fill variable. The 'category' argument allows for filtering to specific categories such as amino acids. Other arguments alter the visual appearance of the plot. 
+
+```R
+# Basic example with commercial media
+commercial <- load_comparison(medium = c("aDMEM", "DMEM", "F12", "RPMI", "MEM"))
+plot_barplot(commercial, category = "Amino Acids")
+```
+
 ## Heatmap
+The 'plot_heatmap' function generates a heatmap using the pheatmap package. At minimum, it takes as input a dataframe containing metabolomics/composition data of different cell culture media. The 'category' argument allows for filtering to specific categories such as amino acids. Other arguments alter the visual appearance of the plot. 
+
+```R
+# Basic example with commercial media
+commercial <- load_comparison(medium = c("aDMEM", "DMEM", "F12", "RPMI", "MEM"))
+plot_heatmap(commercial)
+```
