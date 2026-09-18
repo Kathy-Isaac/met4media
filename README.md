@@ -33,7 +33,7 @@ example <-  data.frame(
   Concentration = c(4500, 3000, 2000)
 )
 
-example <- standardize(example)
+df <- standardize(example)
 ```
 
 **Table 1. Example input to standardize function.**
@@ -54,9 +54,50 @@ example <- standardize(example)
 
 # Categorization
 
-Metabolites can also be categorized into classes such as amino acids and vitamins, facilitating comparison of media composition.
+The 'categorize' function matches the HMDB ID of a metabolite to its HMDB class, HMDB sub-class and a manually curated category. The input is a dataframe with a 'HMDB' column containing HMDB IDs. It is recommended that the dataframe is first standardized using the `standardize` function to generate HMDB ids for each metabolite.
+
+```R
+# Basic example
+
+example <-  data.frame(
+  Name = c("Glucose", "Tyrosine", "Valine"),
+  Concentration = c(4500, 3000, 2000)
+)
+
+df <- standardize(example)
+df <- categorize(df)
+```
+**Table 2. Example output from categorize function.**
+
+| Name | Concentration | Compound | KEGG | HMDB | Class | SubClass | Category |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Glucose | 4500 | D-Glucose | C00031 | HMDB0000122 | Organooxygen compounds | Carbohydrates and carbohydrate conjugates | Carbohydrates |
+| Tyrosine | 3000 | L-Tyrosine | C00082 | HMDB0000158 | Carboxylic acids and derivatives | Amino acids, peptides, and analogues | Amino Acids |
+| Valine | 2000 | L-Valine | C00183 | HMDB0000883 | Carboxylic acids and derivatives | Amino acids, peptides, and analogues | Amino Acids |
 
 # Load Comparison Datasets
+
+The 'load_comparison' function loads media composition of fully and/or partially defined commercial media and outputs it either as a dataframe or appended to the user supplied sample dataframe for comparison. It takes three optional arguments. The first 'df' contains the sample metabolite composition to append the commercial media composition to for comparison. The second 'medium' is a vector containing the names of the commercoal media to load. The complete media list includes DMEM, aDMEM, DMEM.F12, aDMEM.F12, F12, F10, MEM, IMDM, RPMI, aRPMI, McCoy5A, NBM, StemPro, mTeSR, E6, E8, ECGM, EpiLife, N2B27, StemSpan, UC, PluriSTEM. The third argument 'defined' if set to TRUE only outputs fully defined commercial media. 
+
+```R
+# Example to load all commercial media available
+commercial <- load_comparison(defined = FALSE)
+
+# Example to load all defined commercial media available
+commercial <- load_comparison()
+
+# Example to load selected commercial media
+commercial <- load_comparison(medium = c("aDMEM", "DMEM", "F12"))
+
+# Example to append selected commercial media to user supplied data for comparison
+example <-  data.frame(
+  Name = c("Glucose", "Tyrosine", "Valine"),
+  Concentration = c(4500, 3000, 2000)
+)
+df <- standardize(example)
+df <- categorize(df)
+df <- load_commercial(df = df,  medium = c("aDMEM", "DMEM", "F12"))
+```
 
 # Visualization
 
