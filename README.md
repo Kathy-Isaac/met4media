@@ -26,6 +26,8 @@ install_github('Kathy-Isaac/met4media')
 The 'standardize' function standardizes metabolite names across datasets to account for differences in naming conventions. Its input argument is a dataframe with a 'Name' column containing metabolite names to be standardized. It outputs a dataframe with columns containing the standardized name, HMDB ID and KEGG ID. The function is a wrapper that uses MetaboAnalyst API.
 
 ```R
+# Basic example
+
 example <-  data.frame(
   Name = c("Glucose", "Tyrosine", "Valine"),
   Concentration = c(4500, 3000, 2000)
@@ -50,3 +52,14 @@ example <- standardize(example)
 | Tyrosine | 3000 | L-Tyrosine | C00082 | HMDB0000158 |
 | Valine | 2000 | L-Valine | C00183 | HMDB0000883 |
 
+# Categorization
+
+Metabolites can also be categorized into classes such as amino acids and vitamins, facilitating comparison of media composition.
+
+# Load Comparison Datasets
+
+# Visualization
+
+## Bar Plot
+
+## Heatmap
