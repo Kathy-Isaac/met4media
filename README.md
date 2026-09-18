@@ -21,9 +21,12 @@ install_github('Kathy-Isaac/met4media')
 4. [Visualization](#visualization)
    1. [Bar plot](#bar-plot)
    2. [Heatmap](#heatmap)
+5. [Acknowledgements](#acknowledgements)
+   1. [Metabonanalyst](#metaboanalyst)
+   2. [HMDB](#hmdb)
 
 # Standardization
-The 'standardize' function standardizes metabolite names across datasets to account for differences in naming conventions. Its input argument is a dataframe with a 'Name' column containing metabolite names to be standardized. It outputs a dataframe with columns containing the standardized name, HMDB ID and KEGG ID. The function is a wrapper that uses MetaboAnalyst API.
+The 'standardize' function standardizes metabolite names across datasets to account for differences in naming conventions. Its input argument is a dataframe with a 'Name' column containing metabolite names to be standardized. It outputs a dataframe with columns containing the standardized name, Human Metabolome Database (HMDB) ID and KEGG ID. The function is a wrapper that uses MetaboAnalyst API.
 
 ```R
 # Basic example
@@ -128,3 +131,32 @@ plot_heatmap(commercial)
 ![met4media workflow](images/example_heatmap.png)
 
 **Figure 1. Example heatmap.**
+
+# Acknowledgements
+
+## MetaboAnalyst
+
+Compound name mapping in met4media is performed using the MetaboAnalyst API. The API is used to map metabolite names to standardized identifiers, including HMDB and KEGG identifiers.
+
+MetaboAnalyst is an open-source platform for metabolomics data analysis. This package uses the MetaboAnalyst API for non-commercial scientific and educational purposes and does not redistribute the MetaboAnalyst software or database.
+
+Please cite MetaboAnalyst when using this resource:
+Pang, Z., Lu, Y., Zhou, G., Hui, F., Xu, L., Viau, C., Spigelman, A., MacDonald, P., Wishart, D., Li, S., and Xia, J. (2024) MetaboAnalyst 6.0: towards a unified platform for metabolomics data processing, analysis and interpretation Nucleic Acids Research (doi: 10.1093/nar/gkae253)
+Pang, Z., Xu, L., Viau, C., Lu, Y., Salavati, R., Basu, N., and Xia, J. (2024) MetaboAnalystR 4.0: a unified LC-MS workflow for global metabolomics Nature Communications (doi: 10.1038/s41467-024-48009-6)
+
+Please see the [MetaboAnalyst website](https://www.metaboanalyst.ca/MetaboAnalyst/home.xhtml) for current information regarding the software, API, and applicable terms of use.
+
+## HMDB
+
+Metabolite classification information (`HMDB`, `Class`, and `SubClass`) is derived from HMDB. The `Category` field is a higher-level categorization developed for `met4media` based on HMDB classification information.
+
+HMDB is licensed under the Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0). This package uses the HMDB-derived information for non-commercial scientific and educational purposes.
+
+Please cite HMDB when using this resource:
+Wishart DS, Tzur D, Knox C, et al., HMDB: the Human Metabolome Database. Nucleic Acids Res. 2007 Jan;35(Database issue):D521-6. 17202168 
+Wishart DS, Knox C, Guo AC, et al., HMDB: a knowledgebase for the human metabolome. Nucleic Acids Res. 2009 37(Database issue):D603-610. 18953024 
+Wishart DS, Jewison T, Guo AC, Wilson M, Knox C, et al., HMDB 3.0 — The Human Metabolome Database in 2013. Nucleic Acids Res. 2013. Jan 1;41(D1):D801-7. 23161693 
+Wishart DS, Feunang YD, Marcu A, Guo AC, Liang K, et al., HMDB 4.0 — The Human Metabolome Database for 2018. Nucleic Acids Res. 2018. Jan 4;46(D1):D608-17. 29140435 
+Wishart DS, Guo AC, Oler E, et al., HMDB 5.0: the Human Metabolome Database for 2022. Nucleic Acids Res. 2022. Jan 7;50(D1):D622–31. 34986597 
+
+Please see the [HMDB website](https://hmdb.ca/) and its licensing information for the current terms.
