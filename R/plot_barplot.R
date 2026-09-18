@@ -49,21 +49,21 @@ plot_barplot <- function(data, category, n = 15, x_var = "Compound", y_var = "Co
 
   # Generate plot
   p <- ggplot2::ggplot(d.plot) +
-    geom_bar(
-      aes_string(x = x_var, y = y_var, fill = fill_var),
+    ggplot2::geom_bar(
+      ggplot2::aes_string(x = x_var, y = y_var, fill = fill_var),
       stat = "identity",
       position = "dodge") +
-    scale_fill_brewer(fill_lab, palette = palette) +
-    theme_classic() +
-    theme(
-      plot.margin = margin(0.2, 0.8, 0.2, 0.2, "cm"),
-      legend.position = legend, legend.text = element_text(size = 13),
-      axis.text.x = element_text(angle = -55, hjust = 0, vjust = 1),
-      axis.text = element_text(size = 13),
-      axis.title = element_text(size = 18)
+    ggplot2::scale_fill_brewer(fill_lab, palette = palette) +
+    ggplot2::theme_classic() +
+    ggplot2::theme(
+      plot.margin = ggplot2::margin(0.2, 0.8, 0.2, 0.2, "cm"),
+      legend.position = legend, legend.text = ggplot2::element_text(size = 13),
+      axis.text.x = ggplot2::element_text(angle = -55, hjust = 0, vjust = 1),
+      axis.text = ggplot2::element_text(size = 13),
+      axis.title = ggplot2::element_text(size = 18)
     ) +
-    ylab(y_lab) +
-    xlab(x_lab)
+    ggplot2::ylab(y_lab) +
+    ggplot2::xlab(x_lab)
 
   return(p)
 }
