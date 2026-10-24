@@ -132,7 +132,7 @@ plot_heatmap(commercial)
 
 **Figure 1. Example heatmap.**
 
-# Acknowledgements
+# Attribution
 
 ## MetaboAnalyst
 
@@ -162,3 +162,19 @@ Please cite HMDB when using this resource:
 - Wishart DS, Guo AC, Oler E, et al., HMDB 5.0: the Human Metabolome Database for 2022. Nucleic Acids Res. 2022. Jan 7;50(D1):D622–31. 34986597 
 
 Please see the [HMDB website](https://hmdb.ca/) and its licensing information for the current terms.
+
+# Licensing
+
+## Original Source Code
+
+Unless otherwise indicated, the original source code in this package is licensed under the Apache License, Version 2.0. You may use, reproduce, modify, and distribute this code in accordance with the terms of that license. A copy of the license is available in the LICENSE file and at https://www.apache.org/licenses/LICENSE-2.0.
+
+## HMDB Derived Data
+
+This package includes a curated dataset derived from HMDB, containing selected fields including HMDB identifiers, classes, subclasses. The HMDB-derived material is subject to the applicable CC BY-NC 4.0 license terms. The Apache License 2.0 does not apply to this material and does not grant permission for commercial use of HMDB-derived content.
+
+Users must provide appropriate attribution to HMDB and comply with the applicable license terms when using or redistributing HMDB-derived material. Commercial use of the HMDB-derived material may require explicit permission from the relevant rights holders.
+
+## Third Party Software
+
+This package uses third-party R packages, including dplyr, tidyr, ggplot2, httr, rjson, and pheatmap. These packages are distributed under their respective licenses. Where third-party code or materials are redistributed, their applicable license conditions must be respected.
