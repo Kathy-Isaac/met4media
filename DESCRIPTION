@@ -1,12 +1,11 @@
 Package: met4media
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Compare Metabolite Profiles of Novel Cell Culture Media
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Kathy Isaac
+Maintainer: Kathy Isaac 
+Description: R package that enables users to compare the metabolite profiles of novel cell culture media with those of user specified media and/or a database of publicly available commercial cell culture media.
+License: Apache License (>= 2)
 Encoding: UTF-8
 LazyData: true
 Imports: 
