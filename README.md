@@ -27,7 +27,6 @@ install_github('Kathy-Isaac/met4media')
 6. [Licensing](#licensing)
    1. [Original Source Code](#original-source-code)
    2. [HMDB Derived Data](#hmdb-derived-data)
-   3. [Third Party Software](#third-party-software)
 
 # Standardization
 The 'standardize' function standardizes metabolite names across datasets to account for differences in naming conventions. Its input argument is a dataframe with a 'Name' column containing metabolite names to be standardized. It outputs a dataframe with columns containing the standardized name, Human Metabolome Database (HMDB) ID and KEGG ID. The function is a wrapper that uses MetaboAnalyst API.
@@ -179,6 +178,4 @@ This package includes a curated dataset derived from HMDB, containing selected f
 
 Users must provide appropriate attribution to HMDB and comply with the applicable license terms when using or redistributing HMDB-derived material. Commercial use of the HMDB-derived material may require explicit permission from the relevant rights holders.
 
-## Third Party Software
 
-This package uses third-party R packages, including dplyr, tidyr, ggplot2, httr, rjson, and pheatmap. These packages are distributed under their respective licenses. Where third-party code or materials are redistributed, their applicable license conditions must be respected.
