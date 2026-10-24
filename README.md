@@ -19,12 +19,15 @@ install_github('Kathy-Isaac/met4media')
 2. [Categorization](#categorization)
 3. [Comparison](#load-comparison-datasets)
 4. [Visualization](#visualization)
-   1. [Bar plot](#bar-plot)
+   1. [Bar Plot](#bar-plot)
    2. [Heatmap](#heatmap)
-5. [Acknowledgements](#acknowledgements)
+5. [Attribution](#attribution)
    1. [MetabonAnalyst](#metaboanalyst)
    2. [HMDB](#hmdb)
-
+6. [Licensing](#licensing)
+   1. [Original Source Code](#source-code)
+   2. [HMDB Derived Data](#hmdb-data)
+   3. [Third Party Software](#third-party)
 # Standardization
 The 'standardize' function standardizes metabolite names across datasets to account for differences in naming conventions. Its input argument is a dataframe with a 'Name' column containing metabolite names to be standardized. It outputs a dataframe with columns containing the standardized name, Human Metabolome Database (HMDB) ID and KEGG ID. The function is a wrapper that uses MetaboAnalyst API.
 
