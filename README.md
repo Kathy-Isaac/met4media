@@ -174,7 +174,7 @@ Unless otherwise indicated, the original source code in this package is licensed
 
 ## HMDB Derived Data
 
-This package includes a curated dataset derived from HMDB, containing selected fields including HMDB identifiers, classes, subclasses. The HMDB-derived material is subject to the applicable CC BY-NC 4.0 license terms. The Apache License 2.0 does not apply to this material and does not grant permission for commercial use of HMDB-derived content.
+This package includes a curated dataset derived from HMDB, containing selected fields including HMDB identifiers, classes, and subclasses. The HMDB-derived material is subject to the applicable CC BY-NC 4.0 license terms. The Apache License 2.0 does not apply to this material and does not grant permission for commercial use of HMDB-derived content.
 
 Users must provide appropriate attribution to HMDB and comply with the applicable license terms when using or redistributing HMDB-derived material. Commercial use of the HMDB-derived material may require explicit permission from the relevant rights holders.
 
